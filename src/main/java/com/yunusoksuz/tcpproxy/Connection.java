@@ -34,7 +34,11 @@ public class Connection implements Runnable {
             return;
         }
 
-        LOGGER.info("Proxy {}:{} <-> {}:{}", clientsocket.getInetAddress().getHostName(), clientsocket.getPort(), serverConnection.getInetAddress().getHostName(), serverConnection.getPort());
+        LOGGER.info("Proxy {}:{} <-> {}:{}",
+                clientsocket.getInetAddress().getHostName(),
+                clientsocket.getPort(),
+                serverConnection.getInetAddress().getHostName(),
+                serverConnection.getPort());
 
         new Thread(new Proxy(clientsocket, serverConnection)).start();
         new Thread(new Proxy(serverConnection, clientsocket)).start();

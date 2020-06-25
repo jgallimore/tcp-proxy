@@ -28,5 +28,6 @@ public class AppMain {
         tcpIpProxy.listen();
     }
 
-
+    private AppMain() {
+    }
 }
